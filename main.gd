@@ -1,26 +1,24 @@
 extends Node
 
 func _ready():
-	var items: Array[String] = ["Potion", "Feather", "Stolen Harp"]
-	
-	# For loops
-	for item in items:
-		if item.length() > 6:
-			print(item)
+	var players = {
+		"Crook": 1,
+		"Villain": 35,
+		"Boss": 100,
+		}
 
-	for n in 8:
-		print(n)
+	print(players["Villain"])
+	
+	players["Villain"] = 50
+	players["Dwayne"] = 999
 
-	# While loops
-	var glass := 0.0
-	
-	while glass < 0.5:
-		glass +=randf_range(0.01, 0.2)
+	for username in players:
+		print(username + ": " + str(players[username]))
 		
-		#if glass > 0.2:
-			#break
-		
-		print(glass)
+	var players2 = {
+		"Crook": {"Level": 1, "Health": 80},
+		"Villain": {"Level": 50, "Health": 150},
+		"Boss": {"Level": 100, "Health": 500},
+	}
 	
-	print("The glass is now half full")
-	
+	print(players2["Boss"]["Health"])
