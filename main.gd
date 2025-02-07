@@ -1,9 +1,19 @@
 extends Node
 
-#@onready var weapon = $Player/Weapon
-@export var my_node: Sprite2D
+signal leveled_up(msg)
 
-func _ready():
-	#print(weapon.get_path())
-	if my_node is Node2D:
-		print("Is 2D!")
+var xp := 0
+
+#func _ready():
+	#leveled_up.connect(_on_leveled_up)
+
+func _on_timer_timeout() -> void:
+	xp += 5
+	print(xp)
+	if xp >= 20:
+		xp = 0
+		leveled_up.emit("GZ!")
+
+
+func _on_leveled_up(msg) -> void:
+	print(msg)

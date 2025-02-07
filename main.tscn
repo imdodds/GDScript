@@ -2,14 +2,11 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_esgkc"]
 
-[node name="Main" type="Node" node_paths=PackedStringArray("my_node")]
+[node name="Main" type="Node"]
 script = ExtResource("1_esgkc")
-my_node = NodePath("Player/Weapon")
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
+autostart = true
 
-[node name="Graphics" type="Sprite2D" parent="Player"]
-
-[node name="Weapon" type="Sprite2D" parent="Player"]
-
-[node name="Enemy" type="Node2D" parent="."]
+[connection signal="leveled_up" from="." to="." method="_on_leveled_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
